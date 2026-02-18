@@ -191,8 +191,12 @@ Logout
          <b>Radhe Shyam Garments</b>
          , your ultimate destination for style, comfort, and quality. We believe that fashion is more than just clothing—it’s an expression of who you are. Whether you are looking for a sharp professional look, a relaxed weekend outfit, or adorable wear for your little ones, we have something special for everyone. <br><br>
           Our Specialized Collections: <br><br>
-           <b>Men’s Wear
-            :</b> High-quality denim, jeans, casual shirts and trendy tees. <b>Women’s Wear:</b> Elegant jeans, chic tops and ethnic essentials. <b>Kids’ Wear:</b> Comfortable, vibrant and playful outfits. <br><br> <b>Why Shop With Us?</b><br> ✔ Premium Quality Fabrics<br> ✔ Affordable Prices<br> ✔ Customer Satisfaction Priority <br><br> 
+           <b>Men’s Wear :</b> High-quality denim, jeans, casual shirts and trendy tees.<br>
+
+<b>Women’s Wear:</b> Elegant jeans, chic tops and ethnic essentials.<br>
+
+<b>Kids’ Wear:</b> Comfortable, vibrant and playful outfits.
+ <br><br> <b>Why Shop With Us?</b><br> ✔ Premium Quality Fabrics<br> ✔ Affordable Prices<br> ✔ Customer Satisfaction Priority <br><br> 
     Our goal is to become the go-to fashion hub for families in Ashapur. </p> <br>
 <br><br>
     <h2>Quick Contact Info</h2>
@@ -245,20 +249,41 @@ let womenProducts = [
 {name:"Casual Top", img:"w7.webp"},
 {name:"White Suit", img:"w8.webp"},
 {name:"Red suit", img:"w9.jpg"},
-{name:"Maxi Dress", img:"w10.webp"}
+{name:"Maxi Dress", img:"w10.webp"},
+{name:"Kurta Pant Dupatta set", img:"w11.webp"},
+{name:"Kurta Palazzo Dupatta Set", img:"w12.webp"},
+{name:"Women Georgette Kurta Dupatta Set", img:"w13.webp"},
+{name:"Women Georgette Kurta Dupatta Set", img:"w14.webp"},
+{name:"Girls Printed Cotton Blend Kurta", img:"w15.webp"},
+{name:"Girls Cotton Blend Kurta", img:"w16.webp"},
+{name:"Girls Floral Print  Kurta", img:"w17.webp"},
+{name:"Banarasi Silk Blend, Silk Saree", img:"w18.webp"},
+{name:"Daily Wear Georgette Saree ", img:"w19.webp"},
+{name:"Saree (Pink)", img:"w20.webp"}
 ];
 
 let menProducts = [
 {name:"Formal Shirt", img:"m1.jpg"},
-{name:"Formal Pants", img:"m2.jpg"},
-{name:"Casual T-Shirt", img:"m3.jpg"},
-{name:"Blazer", img:"m4.webp"},
-{name:"Jeans", img:"m5.jpg"},
-{name:"Hoodie", img:"m6.webp"},
+{name:"Formal shirt", img:"m2.webp"},
+{name:"Formal Pants", img:"m3.jpg"},
+{name:"Formal Pants", img:"m4.webp"},
+{name:"Blazer", img:"m5.webp"},
+{name:"Blazer", img:"m6.webp"},
 {name:"Kurta", img:"m7.jpg"},
-{name:"Track Suit", img:"m8.webp"},
+{name:"Kurta", img:"m8.webp"},
 {name:"Full Sleeve T-shirts", img:"m9.jpg"},
-{name:"Denim Jacket", img:"m10.jpg"}
+{name:"Casual T-shirt", img:"m10.jpg"},
+{name:"Track Pant", img:"m11.webp"},
+{name:"Warm Straight Fit Black Lowers", img:"m12.webp"},
+{name:"Men Regular Mid Rise Black Jeans", img:"m13.jpg"},
+{name:"Men Regular Mid Rise Blue Jeans", img:"m14.webp"},
+{name:"Denim", img:"m15.jpg"},
+{name:"Men's Brown Pinstripe Short-Sleeve Shirt-Cotton", img:"m16.webp"},
+{name:"Highlander Red Striped Oversized Fit Casual Shirt", img:"m17.webp"},
+{name:"Classic Shirt For Men's", img:"m18.webp"},
+{name:"Casual Shirt For Men's", img:"m19.webp"},
+{name:"Cotton Short Pant", img:"m20.jpg"}
+
 ];
 
 let kidsProducts = [
@@ -282,7 +307,9 @@ container.innerHTML += `
 <div class="card">
 <img src="${product.img}">
 <h4>${product.name}</h4>
-<div class="visit-text">Visit Store</div>
+<div class="visit-text" onclick="trackVisit('${product.name}')">
+Visit Store
+</div>
 <div class="rating">
 <span onclick="rate(this)">★</span>
 <span onclick="rate(this)">★</span>
@@ -324,15 +351,18 @@ stars[i].classList.add("active");
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDWDf1C_U8zMALCKje8ixrW773vooZzcTs",
   authDomain: "radhe-shyam-garments.firebaseapp.com",
   projectId: "radhe-shyam-garments",
-  appId: "1:540772977793:web:d3d03193dfd60732991180"
+  appId: "1:540772977793:web:d3d03193dfd60732991180",
+  measurementId: "G-E6ZZHQ0XCH"
 };
 
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
@@ -344,6 +374,13 @@ alert("Logged in as "+currentUser.email);
 })
 .catch(error=>alert(error.message));
 }
+/* ===== VISIT STORE TRACK EVENT ===== */
+window.trackVisit = function(productName){
+logEvent(analytics, 'visit_store_click', {
+  item_name: productName
+});
+}
+
 
 window.logout = function(){
 signOut(auth);
@@ -361,10 +398,5 @@ document.getElementById("logoutBtn").style.display="none";
 }
 });
 </script>
-
 </body>
 </html>
-
-
-
-
