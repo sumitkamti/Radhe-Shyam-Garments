@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radhe Shyam Garments</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
+body{background:linear-gradient(135deg,#141e30,#243b55);color:white;scroll-behavior:smooth;}
+header{position:fixed;top:0;width:100%;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.6);z-index:1000;}
+.left-section{display:flex;align-items:center;gap:15px;}
+.logo-img{width:70px;height:70px;border-radius:50%;}
+.brand-text{display:flex;flex-direction:column;}
+.logo{font-size:28px;font-weight:bold;}
+.details{font-size:12px;opacity:0.8;}
+nav{display:flex;align-items:center;}
+nav a{color:white;margin:0 15px;text-decoration:underline;font-size:16px;font-weight:bold;transition:0.3s;}
+nav a:hover{color:#ffd700;}
+.search-box{margin-left:20px;}
+.search-box input{padding:6px 15px;border-radius:20px;border:none;}
+.container{padding:120px 40px 40px;}
+.category{margin-bottom:80px;}
+.category h2{margin-bottom:20px;border-left:5px solid #ffd700;padding-left:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
+.card{background:rgba(255,255,255,0.08);padding:12px;border-radius:18px;backdrop-filter:blur(12px);transition:0.4s;text-align:left;}
+.card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.6);}
+.card img{width:100%;height:300px;object-fit:contain;border-radius:12px;}
+.visit-text{margin-top:5px;color:#ffd700;font-weight:bold;font-size:14px;}
+.rating span{font-size:18px;cursor:pointer;color:gray;}
+.rating span.active{color:#ffd700;}
+.info-section{padding:80px 40px;background:rgba(0,0,0,0.5);margin-top:40px;border-radius:10px;}
+.info-section h2{
+color:#ffd700;
+margin-bottom:15px;
+}
+
+.info-section a{
+color:#ffd700;
+font-weight:bold;
+text-decoration:none;
+}
+
+.info-section a:hover{
+text-decoration:underline;
+}
+
+footer{text-align:center;padding:20px;font-size:12px;opacity:0.7;}
+/* ===== FINAL PERFECT PHONE LAYOUT ===== */
+@media (max-width:768px){
+
+/* Header vertical but tight */
+header{
+flex-direction:column;
+align-items:stretch;
+position:relative;
+padding:12px 15px;
+}
+
+/* Logo + Shop name straight */
+.left-section{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+/* Shop name wrap na ho */
+.logo{
+font-size:22px;
+white-space:nowrap;
+}
+
+/* Owner name small */
+.details{
+font-size:12px;
+}
+
+/* Login top right corner */
+#loginBtn,
+#logoutBtn{
+position:absolute;
+top:55px;
+right:15px;
+}
+
+/* NAV separate line */
+nav{
+margin-top:10px;
+display:flex;
+align-items:center;
+flex-wrap:nowrap;
+justify-content:space-between;
+}
+
+/* Nav links left side */
+nav a{
+font-size:14px;
+margin-right:10px;
+}
+
+/* Search right corner */
+.search-box{
+margin:0;
+}
+
+.search-box input{
+width:140px;
+}
+
+/* Container top spacing fix (heading hide na ho) */
+.container{
+padding:20px 15px 20px;
+}
+
+/* Category gap tight */
+.category{
+margin-bottom:35px;
+}
+
+/* Products 2 per row */
+.grid{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.card img{
+height:200px;
+}
+
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="left-section">
+<img src="logo.png" class="logo-img">
+<div class="brand-text">
+<div class="logo">Radhe Shyam Garments</div>
+<div class="details">Owner: Sonu Kumar Kamti</div>
+</div>
+</div>
+
+<nav>
+<a href="#women">Women</a>
+<a href="#men">Men</a>
+<a href="#kids">Kids</a>
+<a href="#about">About</a>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search..." onkeyup="searchItems()">
+</div>
+
+<button onclick="googleLogin()" id="loginBtn"
+style="margin-left:15px;padding:6px 12px;border-radius:15px;border:none;background:#ffd700;font-weight:bold;cursor:pointer;">
+Login
+</button>
+
+<button onclick="logout()" id="logoutBtn"
+style="display:none;margin-left:10px;padding:6px 12px;border-radius:15px;border:none;background:#ff4d4d;color:white;font-weight:bold;cursor:pointer;">
+Logout
+</button>
+
+</nav>
+</header>
+
+<div class="container">
+
+<div class="category" id="women">
+<h2>Women Collection</h2>
+<div class="grid" id="womenGrid"></div>
+</div>
+
+<div class="category" id="men">
+<h2>Men Collection</h2>
+<div class="grid" id="menGrid"></div>
+</div>
+
+<div class="category" id="kids">
+<h2>Kids Collection</h2>
+<div class="grid" id="kidsGrid"></div>
+</div>
+<!-- ABOUT FULL RESTORED -->
+<div class="info-section" id="about"> 
+    <h2>About Us</h2> 
+    <p> Redefining Fashion for the Whole Family Welcome to
+         <b>Radhe Shyam Garments</b>
+         , your ultimate destination for style, comfort, and quality. We believe that fashion is more than just clothing—it’s an expression of who you are. Whether you are looking for a sharp professional look, a relaxed weekend outfit, or adorable wear for your little ones, we have something special for everyone. <br><br>
+          Our Specialized Collections: <br><br>
+           <b>Men’s Wear
+            :</b> High-quality denim, jeans, casual shirts and trendy tees. <b>Women’s Wear:</b> Elegant jeans, chic tops and ethnic essentials. <b>Kids’ Wear:</b> Comfortable, vibrant and playful outfits. <br><br> <b>Why Shop With Us?</b><br> ✔ Premium Quality Fabrics<br> ✔ Affordable Prices<br> ✔ Customer Satisfaction Priority <br><br> 
+    Our goal is to become the go-to fashion hub for families in Ashapur. </p> <br>
+<br><br>
+    <h2>Quick Contact Info</h2>
+
+<p>
+📞 Phone:
+<a href="tel:7004598434">7004598434</a><br><br>
+
+💬 WhatsApp:
+<a href="https://wa.me/917004598434" target="_blank">
+Chat on WhatsApp
+</a><br><br>
+
+📸 Instagram:
+<a href="https://instagram.com/radheshyam_garments_rc" target="_blank">
+@radheshyam_garments_rc
+</a><br><br>
+
+✉ Email:
+<a href="mailto:sonukumarkamti900sk@gmail.com">
+sonukumarkamti900sk@gmail.com
+</a><br><br>
+
+📍 Address:
+<a href="https://www.google.com/maps/search/?api=1&query=Ashapur+Benipur+Darbhanga" target="_blank">
+Ashapur, Benipur, Darbhanga  
+Near Central Bank Of India
+</a>
+</p>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Radhe Shyam Garments
+</footer>
+
+<script>
+
+let currentUser = null;
+
+let womenProducts = [
+{name:"Pink Suit", img:"w1.webp"},
+{name:"Pink Suit", img:"w2.jpg"},
+{name:"Blue_dupatta_set", img:"w3.webp"},
+{name:"Indian Traditional Suit", img:"w4.jpg"},
+{name:"Black Saree", img:"w5.jpg"},
+{name:"Pink Floral Dress", img:"w6.jpg"},
+{name:"Casual Top", img:"w7.webp"},
+{name:"White Suit", img:"w8.webp"},
+{name:"Red suit", img:"w9.jpg"},
+{name:"Maxi Dress", img:"w10.webp"}
+];
+
+let menProducts = [
+{name:"Formal Shirt", img:"m1.jpg"},
+{name:"Formal Pants", img:"m2.jpg"},
+{name:"Casual T-Shirt", img:"m3.jpg"},
+{name:"Blazer", img:"m4.webp"},
+{name:"Jeans", img:"m5.jpg"},
+{name:"Hoodie", img:"m6.webp"},
+{name:"Kurta", img:"m7.jpg"},
+{name:"Track Suit", img:"m8.webp"},
+{name:"Full Sleeve T-shirts", img:"m9.jpg"},
+{name:"Denim Jacket", img:"m10.jpg"}
+];
+
+let kidsProducts = [
+{name:"Girls Baby Frock", img:"1.webp"},
+{name:"Girls Printed Palazzos", img:"2.webp"},
+{name:"Boys Casual T-Shirts", img:"3.webp"},
+{name:"Romper", img:"4.webp"},
+{name:"Casual Set", img:"5.webp"},
+{name:"Party Dress", img:"6.webp"},
+{name:"Shorts Set", img:"7.webp"},
+{name:"Knee Dress", img:"8.webp"},
+{name:"Casual Frock", img:"9.webp"},
+{name:"Baby Dress", img:"10.webp"}
+];
+
+function renderProducts(products, containerId){
+let container = document.getElementById(containerId);
+container.innerHTML = "";
+products.forEach(product=>{
+container.innerHTML += `
+<div class="card">
+<img src="${product.img}">
+<h4>${product.name}</h4>
+<div class="visit-text">Visit Store</div>
+<div class="rating">
+<span onclick="rate(this)">★</span>
+<span onclick="rate(this)">★</span>
+<span onclick="rate(this)">★</span>
+<span onclick="rate(this)">★</span>
+<span onclick="rate(this)">★</span>
+</div>
+</div>`;
+});
+}
+
+renderProducts(womenProducts,"womenGrid");
+renderProducts(menProducts,"menGrid");
+renderProducts(kidsProducts,"kidsGrid");
+
+function searchItems(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let cards=document.querySelectorAll(".card");
+cards.forEach(card=>{
+card.style.display=card.innerText.toLowerCase().includes(input)?"block":"none";
+});
+}
+
+function rate(star){
+if(!currentUser){
+alert("Please login to rate products");
+return;
+}
+let stars=star.parentElement.querySelectorAll("span");
+stars.forEach(s=>s.classList.remove("active"));
+let index=[...stars].indexOf(star);
+for(let i=0;i<=index;i++){
+stars[i].classList.add("active");
+}
+}
+</script>
+
+<!-- FIREBASE AUTH -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDWDf1C_U8zMALCKje8ixrW773vooZzcTs",
+  authDomain: "radhe-shyam-garments.firebaseapp.com",
+  projectId: "radhe-shyam-garments",
+  appId: "1:540772977793:web:d3d03193dfd60732991180"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+window.googleLogin = function(){
+signInWithPopup(auth, provider)
+.then(result=>{
+currentUser=result.user;
+alert("Logged in as "+currentUser.email);
+})
+.catch(error=>alert(error.message));
+}
+
+window.logout = function(){
+signOut(auth);
+}
+
+onAuthStateChanged(auth,(user)=>{
+if(user){
+currentUser=user;
+document.getElementById("loginBtn").style.display="none";
+document.getElementById("logoutBtn").style.display="inline-block";
+}else{
+currentUser=null;
+document.getElementById("loginBtn").style.display="inline-block";
+document.getElementById("logoutBtn").style.display="none";
+}
+});
+</script>
+
+</body>
+</html>
+
+
+
+
