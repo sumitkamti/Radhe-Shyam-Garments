@@ -189,7 +189,7 @@ to{opacity:1;}
 <div id="splash">
     <img src="Logo.png">
     <h2 class="welcome-text">Welcome To</h2>
-    <h1>Radhe Shyam Garments</h1>
+    <h1 id="typeText"></h1>
 </div>
 
 <header>
@@ -496,16 +496,38 @@ document.getElementById("logoutBtn").style.display="none";
 });
 
 </script>
+</script>  <!-- Firebase script ends here -->
+
+<!-- ===== TYPEWRITER + SPLASH CONTROL ===== -->
 <script>
+const text = "Radhe Shyam Garments";
+let index = 0;
+
+function typeEffect(){
+    if(index < text.length){
+        document.getElementById("typeText").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 40); // typing speed
+    }
+}
+
 window.addEventListener("load", function(){
+
+    typeEffect(); // start typing
+
     setTimeout(function(){
         const splash = document.getElementById("splash");
         splash.style.opacity = "0";
+
         setTimeout(function(){
             splash.style.display = "none";
         },600);
-    },700); 
+
+    },2000); // splash visible time
 });
 </script>
+
+</body>
+</html>
 </body>
 </html>
