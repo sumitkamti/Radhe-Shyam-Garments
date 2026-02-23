@@ -375,6 +375,13 @@ let kidsProducts = [
 {name:"Baby Dress", img:"10.webp"}
 ];
 
+function shuffleArray(array){
+for (let i = array.length - 1; i > 0; i--) {
+let j = Math.floor(Math.random() * (i + 1));
+[array[i], array[j]] = [array[j], array[i]];
+}
+}
+
 function renderProducts(products, containerId){
 let container = document.getElementById(containerId);
 container.innerHTML = "";
@@ -396,6 +403,9 @@ Visit Store
 </div>`;
 });
 }
+
+shuffleArray(womenProducts);
+
 
 renderProducts(womenProducts,"womenGrid");
 renderProducts(menProducts,"menGrid");
