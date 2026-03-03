@@ -5,140 +5,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Radhe Shyam Garments</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
-body{background:linear-gradient(135deg,#141e30,#243b55);color:white;scroll-behavior:smooth;}
-header{position:fixed;top:0;width:100%;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.6);z-index:1000;}
+
+/* Body Background - Light Blue/White */
+body{background:#f8fbff;color:#333;scroll-behavior:smooth;}
+
+/* ===== HEADER (SOLID WHITE background) ===== */
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background: #ffffff; 
+box-shadow:0 3px 10px rgba(0,0,0,0.1); 
+z-index:1000;
+transition: background 0.4s ease, box-shadow 0.4s ease; 
+}
+
+/* Scroll hone par CLEAR transparent WHITE */
+header.scrolled {
+background: rgba(255, 255, 255, 0.75); 
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
 .left-section{display:flex;align-items:center;gap:15px;}
-.logo-img{width:70px;height:70px;border-radius:50%;}
+.logo-img{width:65px;height:65px;border-radius:50%;object-fit:cover;}
 .brand-text{display:flex;flex-direction:column;}
-.logo{font-size:28px;font-weight:bold;}
-.details{font-size:12px;opacity:0.8;}
+
+.logo{
+font-family:'Great Vibes', cursive;
+font-size:34px;
+font-weight:normal;
+color:#0056b3; 
+}
+.details{font-size:12px;color:#555;}
+
 nav{display:flex;align-items:center;}
-nav a{color:white;margin:0 15px;text-decoration:underline;font-size:16px;font-weight:bold;transition:0.3s;}
-nav a:hover{color:#ffd700;}
+nav a{color:#0056b3;margin:0 15px;text-decoration:underline;font-size:16px;font-weight:600;transition:0.3s;}
+nav a:hover{opacity:0.8;}
+
 .search-box{margin-left:20px;}
-.search-box input{padding:6px 15px;border-radius:20px;border:none;}
-.container{padding:120px 40px 40px;}
-.category{margin-bottom:80px;}
-.category h2{margin-bottom:20px;border-left:5px solid #ffd700;padding-left:10px;}
+.search-box input{padding:7px 15px;border-radius:25px;border:1px solid #8ab4f8;background:#f0f8ff;color:#0056b3;width:190px;outline:none;}
+
+/* ===== HERO SECTION ===== */
+.hero{
+text-align:center;
+padding:160px 20px 70px; 
+background:linear-gradient(to right, #e8f4fd, #ffffff); 
+}
+
+.hero h1{
+font-size:38px;
+color:#0056b3; 
+font-weight:700;
+}
+
+.hero p{
+font-size:16px;
+color:#555;
+margin-top:5px;
+font-weight: 500;
+}
+
+/* Container & Cards */
+.container{
+padding:60px 40px 40px; 
+} 
+.category{margin-bottom:60px;}
+
+.category h2{
+margin-bottom:25px;
+color:#0056b3;
+border-left:4px solid #0056b3; 
+padding-left:10px;
+font-size: 24px;
+}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
-.card{background:rgba(255,255,255,0.08);padding:12px;border-radius:18px;backdrop-filter:blur(12px);transition:0.4s;text-align:left;}
-.card:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 10px 25px rgba(0,0,0,0.6);}
+
+/* SMOOTH SCROLL OPTIMIZATION APPLIED HERE (Hardware Acceleration) */
+.card{
+    background:#ffffff;
+    padding:12px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
+    text-align:left;
+    transform: translateZ(0); /* Forces GPU rendering for smooth scroll */
+    will-change: transform;
+}
+
+.card:hover{
+    transform: translateY(-6px) translateZ(0); 
+    box-shadow:0 10px 20px rgba(0,0,0,0.12);
+}
+
 .card img{width:100%;height:300px;object-fit:contain;border-radius:12px;}
-.visit-text{margin-top:5px;color:#ffd700;font-weight:bold;font-size:14px;}
+
+.visit-text{margin-top:5px;color:#007bff;font-weight:bold;font-size:14px;cursor:pointer;}
 .rating span{font-size:18px;cursor:pointer;color:gray;}
 .rating span.active{color:#ffd700;}
-.info-section{padding:80px 40px;background:rgba(0,0,0,0.5);margin-top:40px;border-radius:10px;}
-.info-section h2{
-color:#ffd700;
-margin-bottom:15px;
-}
 
-.info-section a{
-color:#ffd700;
-font-weight:bold;
-text-decoration:none;
+/* About Section */
+.info-section{
+padding:40px;
+background: linear-gradient(135deg, #dbeafe, #f0f8ff); 
+color:#333;
+margin-top:40px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+line-height:1.8;
 }
+.info-section h2{color:#0056b3;margin-bottom:15px;}
+.info-section a{color:#007bff;font-weight:bold;text-decoration:none;}
+.info-section a:hover{text-decoration:underline;}
 
-.info-section a:hover{
-text-decoration:underline;
-}
+footer{text-align:center;padding:20px;font-size:12px;color:white;background:#0056b3;margin-top:40px;opacity:0.9;}
 
-footer{text-align:center;padding:20px;font-size:12px;opacity:0.7;}
-/* ===== FINAL PERFECT PHONE LAYOUT ===== */
+/* ===== PHONE LAYOUT ===== */
 @media (max-width:768px){
+header{flex-direction:column;align-items:stretch;position:relative;padding:15px;gap:15px;}
+.left-section{display:flex;align-items:center;gap:10px;}
+.logo{font-size:28px;white-space:nowrap;}
+.details{font-size:11px;}
 
-/* Header vertical but tight */
-header{
-flex-direction:column;
-align-items:stretch;
-position:relative;
-padding:12px 15px;
+nav{display:flex;flex-direction:row;align-items:center;justify-content:space-between;width:100%;}
+nav a{font-size:14px;margin:0 5px;}
+.search-box{margin:0;}
+.search-box input{width:130px;padding:6px 12px;}
+
+.hero{padding:180px 15px 50px;} 
+.hero h1{font-size:30px;}
+
+.container{padding:40px 15px 20px;} 
+.category{margin-bottom:35px;}
+.grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+.card img{height:200px;}
+.info-section{padding:25px 15px;}
 }
 
-/* Logo + Shop name straight */
-.left-section{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-/* Shop name wrap na ho */
-.logo{
-font-size:22px;
-white-space:nowrap;
-}
-
-/* Owner name small */
-.details{
-font-size:12px;
-}
-
-/* Login top right corner */
-#loginBtn,
-#logoutBtn{
-position:absolute;
-top:55px;
-right:15px;
-}
-
-/* NAV separate line */
-nav{
-margin-top:10px;
-display:flex;
-align-items:center;
-flex-wrap:nowrap;
-justify-content:space-between;
-}
-
-/* Nav links left side */
-nav a{
-font-size:14px;
-margin-right:10px;
-}
-
-/* Search right corner */
-.search-box{
-margin:0;
-}
-
-.search-box input{
-width:140px;
-}
-
-/* Container top spacing fix (heading hide na ho) */
-.container{
-padding:20px 15px 20px;
-}
-
-/* Category gap tight */
-.category{
-margin-bottom:35px;
-}
-
-/* Products 2 per row */
-.grid{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.card img{
-height:200px;
-}
-
-}
 /* ===== SPLASH SCREEN ===== */
-
 #splash{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100vh;
-background:linear-gradient(135deg,#141e30,#243b55);
+background:linear-gradient(to right, #e8f4fd, #ffffff);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -146,46 +166,16 @@ flex-direction:column;
 z-index:99999;
 transition:opacity 0.6s ease;
 }
+#splash img{width:120px;height:120px;border-radius:50%;animation:zoomIn 0.8s ease;} 
+#splash h1{margin-top:20px;font-size:40px;font-family: 'Great Vibes', cursive;font-weight:normal;color:#0056b3;text-shadow:0 2px 10px rgba(0,0,0,0.05);letter-spacing:1px;animation:fadeIn 1s ease;}
+.welcome-text{font-family: 'Great Vibes', cursive;font-size:25px;color:#0056b3;margin-top:15px;margin-bottom:5px;letter-spacing:1px;animation:fadeIn 1s ease;}
 
-#splash img{
-width:120px;
-height:120px;
-border-radius:50%;
-animation:zoomIn 0.8s ease;
-} 
-
-#splash h1{
-margin-top:20px;
-font-size:40px;
-font-family: 'Great Vibes', cursive;
-font-weight:normal;
-color:#ffd700;text-shadow:0 2px 10px rgba(0,0,0,0.4);
-letter-spacing:1px;
-animation:fadeIn 1s ease;
-}
-
-.welcome-text{
-font-family: 'Great Vibes', cursive;
-font-size:25px;
-color:#ffd700;
-margin-top:15px;
-margin-bottom:5px;
-letter-spacing:1px;
-animation:fadeIn 1s ease;
-}
-
-@keyframes zoomIn{
-from{transform:scale(0.5);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
+@keyframes zoomIn{from{transform:scale(0.5);opacity:0;} to{transform:scale(1);opacity:1;}}
+@keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
 </style>
 </head>
+
+<body>
 
 <div id="splash">
     <img src="Logo.png">
@@ -193,7 +183,7 @@ to{opacity:1;}
     <h1 id="typeText"></h1>
 </div>
 
-<header>
+<header id="mainHeader">
 <div class="left-section">
 <img src="Logo.png" class="logo-img">
 <div class="brand-text">
@@ -211,19 +201,13 @@ to{opacity:1;}
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchItems()">
 </div>
-
-<button onclick="googleLogin()" id="loginBtn"
-style="margin-left:15px;padding:6px 12px;border-radius:15px;border:none;background:#ffd700;font-weight:bold;cursor:pointer;">
-Login
-</button>
-
-<button onclick="logout()" id="logoutBtn"
-style="display:none;margin-left:10px;padding:6px 12px;border-radius:15px;border:none;background:#ff4d4d;color:white;font-weight:bold;cursor:pointer;">
-Logout
-</button>
-
 </nav>
 </header>
+
+<section class="hero">
+    <h1>Radhe Shyam Garments</h1>
+    <p>Men • Women • Kids Wear</p>
+</section>
 
 <div class="container">
 
@@ -242,7 +226,6 @@ Logout
 <div class="grid" id="kidsGrid"></div>
 </div>
 
-<!-- ABOUT FULL RESTORED -->
 <div class="info-section" id="about"> 
     <h2>About Us</h2> 
     <p> Redefining Fashion for the Whole Family Welcome to
@@ -250,13 +233,11 @@ Logout
          , your ultimate destination for style, comfort, and quality. We believe that fashion is more than just clothing—it’s an expression of who you are. Whether you are looking for a sharp professional look, a relaxed weekend outfit, or adorable wear for your little ones, we have something special for everyone. <br><br>
           Our Specialized Collections: <br><br>
            <b>Men’s Wear :</b> High-quality denim, jeans, casual shirts and trendy tees.<br>
-
 <b>Women’s Wear:</b> Elegant jeans, chic tops and ethnic essentials.<br>
-
 <b>Kids’ Wear:</b> Comfortable, vibrant and playful outfits.
  <br><br> <b>Why Shop With Us?</b><br> ✔ Premium Quality Fabrics<br> ✔ Affordable Prices<br> ✔ Customer Satisfaction Priority <br><br> 
     Our goal is to become the go-to fashion hub for families in Ashapur. </p> <br>
-<br><br>
+<br>
     <h2>Quick Contact Info</h2>
 
 <p>
@@ -294,126 +275,42 @@ Near Central Bank Of India
 </footer>
 
 <script>
-
-let currentUser = null;
-
 let womenProducts = [
-{name:"Pink Suit", img:"w1.webp"},
-{name:"Pink Suit", img:"w2.jpg"},
-{name:"Blue_dupatta_set", img:"w3.webp"},
-{name:"Indian Traditional Suit", img:"w4.jpg"},
-{name:"Black Saree", img:"w5.jpg"},
-{name:"Pink Floral Dress", img:"w6.jpg"},
-{name:"Casual Top", img:"w7.webp"},
-{name:"White Suit", img:"w8.webp"},
-{name:"Red suit", img:"w9.jpg"},
-{name:"Maxi Dress", img:"w10.webp"},
-{name:"Kurta Pant Dupatta set", img:"w11.webp"},
-{name:"Kurta Palazzo Dupatta Set", img:"w12.webp"},
-{name:"Women Georgette Kurta Dupatta Set", img:"w13.webp"},
-{name:"Women Georgette Kurta Dupatta Set", img:"w14.webp"},
-{name:"Girls Printed Cotton Blend Kurta", img:"w15.webp"},
-{name:"Girls Cotton Blend Kurta", img:"w16.webp"},
-{name:"Girls Floral Print  Kurta", img:"w17.webp"},
-{name:"Banarasi Silk Blend, Silk Saree", img:"w18.webp"},
-{name:"Daily Wear Georgette Saree ", img:"w19.webp"},
-{name:"Saree (Pink)", img:"w20.webp"},
-{name:"Cotton-Saree", img:"w21.webp"},
-{name:"Georgette Saree Navy Blue", img:"w22.webp"},
-{name:"Georgette Party-wear Saree", img:"w23.webp"},
-{name:"Trending Wedding Saree", img:"w24.webp"},
-{name:"Trending Saree", img:"w25.webp"},
-{name:"Cotton Kurta with Palazzos & with Dupatta", img:"w26.webp"},
-{name:"kurta & pant with Dupatta set", img:"w27.webp"},
-{name:"cotton skirt", img:"w28.webp"},
-{name:"cotton-skirt", img:"w29.webp"},
-{name:"Dupatta", img:"w30.jpg"},
-{name:"Dupatta-Black", img:"w31.jpg"},
-{name:"Ladies colorful cotton dupatta", img:"w32.jpg"},
-{name:"Dupatta colorful", img:"w33.jpg"},
-{name:"Dupatta colorful", img:"w34.webp"},
-{name:"Dupatta colorful", img:"w35.webp"},
-{name:"odnii cooton", img:"w36.webp"},
-{name:"Hand Kerchief", img:"w37.webp"},
-{name:"Hand Kerchief", img:"w38.webp"},
-{name:"Soft Hankey", img:"w39.webp"},
-{name:"shocks", img:"w40.webp"},
-{name:"shocks", img:"w41.jpg"},
-{name:"White Top", img:"w42.jpg"},
-{name:"Short White Top", img:"w43.webp"},
-{name:"Cotton T-Shirt", img:"w44.webp"},
-{name:"Party Wear Top", img:"w45.webp"},
-{name:"Brown Shot Top", img:"w46.webp"},
-{name:"Cotton White Top", img:"w47.webp"},
-{name:"Cotton Blue Top", img:"w48.jpg"},
-{name:"Cotton Printed Top", img:"w49.webp"},
-{name:"Black Short Top", img:"w50.webp"}
+{name:"Pink Suit", img:"w1.webp"}, {name:"Pink Suit", img:"w2.jpg"}, {name:"Blue_dupatta_set", img:"w3.webp"}, {name:"Indian Traditional Suit", img:"w4.jpg"},
+{name:"Black Saree", img:"w5.jpg"}, {name:"Pink Floral Dress", img:"w6.jpg"}, {name:"Casual Top", img:"w7.webp"}, {name:"White Suit", img:"w8.webp"},
+{name:"Red suit", img:"w9.jpg"}, {name:"Maxi Dress", img:"w10.webp"}, {name:"Kurta Pant Dupatta set", img:"w11.webp"}, {name:"Kurta Palazzo Dupatta Set", img:"w12.webp"},
+{name:"Women Georgette Kurta Dupatta Set", img:"w13.webp"}, {name:"Women Georgette Kurta Dupatta Set", img:"w14.webp"}, {name:"Girls Printed Cotton Blend Kurta", img:"w15.webp"},
+{name:"Girls Cotton Blend Kurta", img:"w16.webp"}, {name:"Girls Floral Print  Kurta", img:"w17.webp"}, {name:"Banarasi Silk Blend, Silk Saree", img:"w18.webp"},
+{name:"Daily Wear Georgette Saree ", img:"w19.webp"}, {name:"Saree (Pink)", img:"w20.webp"}, {name:"Cotton-Saree", img:"w21.webp"}, {name:"Georgette Saree Navy Blue", img:"w22.webp"},
+{name:"Georgette Party-wear Saree", img:"w23.webp"}, {name:"Trending Wedding Saree", img:"w24.webp"}, {name:"Trending Saree", img:"w25.webp"}, {name:"Cotton Kurta with Palazzos & with Dupatta", img:"w26.webp"},
+{name:"kurta & pant with Dupatta set", img:"w27.webp"}, {name:"cotton skirt", img:"w28.webp"}, {name:"cotton-skirt", img:"w29.webp"}, {name:"Dupatta", img:"w30.jpg"},
+{name:"Dupatta-Black", img:"w31.jpg"}, {name:"Ladies colorful cotton dupatta", img:"w32.jpg"}, {name:"Dupatta colorful", img:"w33.jpg"}, {name:"Dupatta colorful", img:"w34.webp"},
+{name:"Dupatta colorful", img:"w35.webp"}, {name:"odnii cooton", img:"w36.webp"}, {name:"Hand Kerchief", img:"w37.webp"}, {name:"Hand Kerchief", img:"w38.webp"},
+{name:"Soft Hankey", img:"w39.webp"}, {name:"shocks", img:"w40.webp"}, {name:"shocks", img:"w41.jpg"}, {name:"White Top", img:"w42.jpg"},
+{name:"Short White Top", img:"w43.webp"}, {name:"Cotton T-Shirt", img:"w44.webp"}, {name:"Party Wear Top", img:"w45.webp"}, {name:"Brown Shot Top", img:"w46.webp"},
+{name:"Cotton White Top", img:"w47.webp"}, {name:"Cotton Blue Top", img:"w48.jpg"}, {name:"Cotton Printed Top", img:"w49.webp"}, {name:"Black Short Top", img:"w50.webp"}
 ];
 
 let menProducts = [
-{name:"Formal Shirt", img:"m1.jpg"},
-{name:"Formal shirt", img:"m2.webp"},
-{name:"Formal Pants", img:"m3.jpg"},
-{name:"Formal Pants", img:"m4.webp"},
-{name:"Blazer", img:"m5.webp"},
-{name:"Blazer", img:"m6.webp"},
-{name:"Kurta", img:"m7.jpg"},
-{name:"Kurta", img:"m8.webp"},
-{name:"Full Sleeve T-shirts", img:"m9.jpg"},
-{name:"Casual T-shirt", img:"m10.jpg"},
-{name:"Track Pant", img:"m11.webp"},
-{name:"Warm Straight Fit Black Lowers", img:"m12.webp"},
-{name:"Men Regular Mid Rise Black Jeans", img:"m13.jpg"},
-{name:"Men Regular Mid Rise Blue Jeans", img:"m14.webp"},
-{name:"Denim", img:"m15.jpg"},
-{name:"Men's Brown Pinstripe Short-Sleeve Shirt-Cotton", img:"m16.webp"},
-{name:"Highlander Red Striped Oversized Fit Casual Shirt", img:"m17.webp"},
-{name:"Classic Shirt For Men's", img:"m18.webp"},
-{name:"Casual Shirt For Men's", img:"m19.webp"},
-{name:"Cotton Short Pant", img:"m20.jpg"},
-{name:"Cotton Textured Blue Shirt", img:"m21.webp"},
-{name:"Cotton White - Shirt", img:"m22.jpg"},
-{name:"Mens Blue Shirt", img:"m23.jpg"},
-{name:"Cotton Black Shirt", img:"m24.webp"},
-{name:"Cotton Full Sleeve Blue-Shirt", img:"m25.webp"},
-{name:"Cotton Full Sleeve Shirt-Black", img:"m26.avif"},
-{name:"Men - Black  Oversized T-Shirt", img:"m27.avif"},
-{name:"Men - Whitee Oversized T-Shirt", img:"m28.avif"},
-{name:"Men - Green Oversized T-Shirt", img:"m29.avif"},
-{name:"Men - Brown Oversized T-Shirt", img:"m30.avif"},
-{name:"Men - Black Oversized T-Shirt", img:"m31.avif"},
-{name:"Men - White Oversized T-Shirt", img:"m32.avif"},
-{name:"Men Cotton Black Oversized T-shirt", img:"m33.avif"},
-{name:"Cotton Lower", img:"m34.webp"},
-{name:"Cotton Lower", img:"m35.jpg"},
-{name:"Cotton Lower", img:"m36.jpg"},
-{name:"Cotton Lower for Men", img:"m37.webp"},
-{name:"Cotton Black Lower", img:"m38.webp"},
-{name:"Cotton Lower", img:"m39.jpg"},
-{name:"Cotton Lower", img:"m40.webp"},
-{name:"Men's Socks", img:"m41.webp"},
-{name:"Men's Socks", img:"m42.jpg"},
-{name:"Hankey - Cotton", img:"m43.jpg"},
-{name:"Hankey - Cotton", img:"m44.jpg"},
-{name:"Black - Colour Formal Trouser for Men", img:"m45.avif"},
-{name:"Black - Colour Formal Trouser for Men", img:"m46.avif"},
-{name:"Grey Colour Formal Trouser for Men", img:"m47.webp"},
-{name:"Grey Colour Formal Trouser for Men", img:"m48.webp"},
-{name:"Linen-Blend Shirt", img:"m49.webp"},
-{name:"Loose Fit Textured resort shirt", img:"m50.avif"},
+{name:"Formal Shirt", img:"m1.jpg"}, {name:"Formal shirt", img:"m2.webp"}, {name:"Formal Pants", img:"m3.jpg"}, {name:"Formal Pants", img:"m4.webp"},
+{name:"Blazer", img:"m5.webp"}, {name:"Blazer", img:"m6.webp"}, {name:"Kurta", img:"m7.jpg"}, {name:"Kurta", img:"m8.webp"},
+{name:"Full Sleeve T-shirts", img:"m9.jpg"}, {name:"Casual T-shirt", img:"m10.jpg"}, {name:"Track Pant", img:"m11.webp"}, {name:"Warm Straight Fit Black Lowers", img:"m12.webp"},
+{name:"Men Regular Mid Rise Black Jeans", img:"m13.jpg"}, {name:"Men Regular Mid Rise Blue Jeans", img:"m14.webp"}, {name:"Denim", img:"m15.jpg"}, {name:"Men's Brown Pinstripe Short-Sleeve Shirt-Cotton", img:"m16.webp"},
+{name:"Highlander Red Striped Oversized Fit Casual Shirt", img:"m17.webp"}, {name:"Classic Shirt For Men's", img:"m18.webp"}, {name:"Casual Shirt For Men's", img:"m19.webp"}, {name:"Cotton Short Pant", img:"m20.jpg"},
+{name:"Cotton Textured Blue Shirt", img:"m21.webp"}, {name:"Cotton White - Shirt", img:"m22.jpg"}, {name:"Mens Blue Shirt", img:"m23.jpg"}, {name:"Cotton Black Shirt", img:"m24.webp"},
+{name:"Cotton Full Sleeve Blue-Shirt", img:"m25.webp"}, {name:"Cotton Full Sleeve Shirt-Black", img:"m26.avif"}, {name:"Men - Black  Oversized T-Shirt", img:"m27.avif"}, {name:"Men - Whitee Oversized T-Shirt", img:"m28.avif"},
+{name:"Men - Green Oversized T-Shirt", img:"m29.avif"}, {name:"Men - Brown Oversized T-Shirt", img:"m30.avif"}, {name:"Men - Black Oversized T-Shirt", img:"m31.avif"}, {name:"Men - White Oversized T-Shirt", img:"m32.avif"},
+{name:"Men Cotton Black Oversized T-shirt", img:"m33.avif"}, {name:"Cotton Lower", img:"m34.webp"}, {name:"Cotton Lower", img:"m35.jpg"}, {name:"Cotton Lower", img:"m36.jpg"},
+{name:"Cotton Lower for Men", img:"m37.webp"}, {name:"Cotton Black Lower", img:"m38.webp"}, {name:"Cotton Lower", img:"m39.jpg"}, {name:"Cotton Lower", img:"m40.webp"},
+{name:"Men's Socks", img:"m41.webp"}, {name:"Men's Socks", img:"m42.jpg"}, {name:"Hankey - Cotton", img:"m43.jpg"}, {name:"Hankey - Cotton", img:"m44.jpg"},
+{name:"Black - Colour Formal Trouser for Men", img:"m45.avif"}, {name:"Black - Colour Formal Trouser for Men", img:"m46.avif"}, {name:"Grey Colour Formal Trouser for Men", img:"m47.webp"}, {name:"Grey Colour Formal Trouser for Men", img:"m48.webp"},
+{name:"Linen-Blend Shirt", img:"m49.webp"}, {name:"Loose Fit Textured resort shirt", img:"m50.avif"}
 ];
 
 let kidsProducts = [
-{name:"Girls Baby Frock", img:"1.webp"},
-{name:"Girls Printed Palazzos", img:"2.webp"},
-{name:"Boys Casual T-Shirts", img:"3.webp"},
-{name:"Romper", img:"4.webp"},
-{name:"Casual Set", img:"5.webp"},
-{name:"Party Dress", img:"6.webp"},
-{name:"Shorts Set", img:"7.webp"},
-{name:"Knee Dress", img:"8.webp"},
-{name:"Casual Frock", img:"9.webp"},
-{name:"Baby Dress", img:"10.webp"}
+{name:"Girls Baby Frock", img:"1.webp"}, {name:"Girls Printed Palazzos", img:"2.webp"}, {name:"Boys Casual T-Shirts", img:"3.webp"}, {name:"Romper", img:"4.webp"},
+{name:"Casual Set", img:"5.webp"}, {name:"Party Dress", img:"6.webp"}, {name:"Shorts Set", img:"7.webp"}, {name:"Knee Dress", img:"8.webp"},
+{name:"Casual Frock", img:"9.webp"}, {name:"Baby Dress", img:"10.webp"}
 ];
 
 function shuffleArray(array){
@@ -429,7 +326,7 @@ container.innerHTML = "";
 products.forEach(product=>{
 container.innerHTML += `
 <div class="card">
-<img src="${product.img}">
+<img src="${product.img}" loading="lazy" alt="${product.name}">
 <h4>${product.name}</h4>
 <div class="visit-text" onclick="trackVisit('${product.name}')">
 Visit Store
@@ -448,7 +345,6 @@ Visit Store
 shuffleArray(womenProducts);
 shuffleArray(menProducts);
 
-
 renderProducts(womenProducts,"womenGrid");
 renderProducts(menProducts,"menGrid");
 renderProducts(kidsProducts,"kidsGrid");
@@ -462,10 +358,6 @@ card.style.display=card.innerText.toLowerCase().includes(input)?"block":"none";
 }
 
 function rate(star){
-if(!currentUser){
-alert("Please login to rate products");
-return;
-}
 let stars=star.parentElement.querySelectorAll("span");
 stars.forEach(s=>s.classList.remove("active"));
 let index=[...stars].indexOf(star);
@@ -473,12 +365,20 @@ for(let i=0;i<=index;i++){
 stars[i].classList.add("active");
 }
 }
+
+/* ===== PASSIVE SCROLL LISTENER ADDED HERE ===== */
+window.addEventListener("scroll", function() {
+    let header = document.getElementById("mainHeader");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+}, { passive: true });
 </script>
 
-<!-- FIREBASE AUTH -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -491,45 +391,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
 
-window.googleLogin = function(){
-signInWithPopup(auth, provider)
-.then(result=>{
-currentUser=result.user;
-alert("Logged in as "+currentUser.email);
-})
-.catch(error=>alert(error.message));
-}
-/* ===== VISIT STORE TRACK EVENT ===== */
 window.trackVisit = function(productName){
 logEvent(analytics, 'visit_store_click', {
   item_name: productName
 });
 }
-
-
-window.logout = function(){
-signOut(auth);
-}
-
-onAuthStateChanged(auth,(user)=>{
-if(user){
-currentUser=user;
-document.getElementById("loginBtn").style.display="none";
-document.getElementById("logoutBtn").style.display="inline-block";
-}else{
-currentUser=null;
-document.getElementById("loginBtn").style.display="inline-block";
-document.getElementById("logoutBtn").style.display="none";
-}
-});
-
 </script>
-</script>  <!-- Firebase script ends here -->
 
-<!-- ===== TYPEWRITER + SPLASH CONTROL ===== -->
 <script>
 const text = "Radhe Shyam Garments";
 let index = 0;
@@ -538,29 +407,21 @@ function typeEffect(){
     if(index < text.length){
         document.getElementById("typeText").innerHTML += text.charAt(index);
         index++;
-        setTimeout(typeEffect, 40); // typing speed
+        setTimeout(typeEffect, 40); 
     }
 }
 
 window.addEventListener("load", function(){
-
-    typeEffect(); // start typing
-
+    typeEffect(); 
     setTimeout(function(){
         const splash = document.getElementById("splash");
         splash.style.opacity = "0";
-
         setTimeout(function(){
             splash.style.display = "none";
         },600);
-
-    },1000); // splash visible time
+    },1000); 
 });
 </script>
 
 </body>
 </html>
-</body>
-</html>
-
-
