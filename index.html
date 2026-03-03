@@ -57,6 +57,7 @@ nav a:hover{opacity:0.8;}
 /* ===== HERO SECTION ===== */
 .hero{
 text-align:center;
+/* Desktop ke liye padding taaki fixed header ke neeche na dabe */
 padding:160px 20px 70px; 
 background:linear-gradient(to right, #e8f4fd, #ffffff); 
 }
@@ -90,7 +91,7 @@ font-size: 24px;
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
 
-/* SMOOTH SCROLL OPTIMIZATION APPLIED HERE (Hardware Acceleration) */
+/* SMOOTH SCROLL OPTIMIZATION */
 .card{
     background:#ffffff;
     padding:12px;
@@ -98,7 +99,7 @@ font-size: 24px;
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
     transition:0.3s;
     text-align:left;
-    transform: translateZ(0); /* Forces GPU rendering for smooth scroll */
+    transform: translateZ(0); 
     will-change: transform;
 }
 
@@ -141,10 +142,11 @@ nav a{font-size:14px;margin:0 5px;}
 .search-box{margin:0;}
 .search-box input{width:130px;padding:6px 12px;}
 
-.hero{padding:180px 15px 50px;} 
+/* YAHI FIX KIYA HAI: Phone me 180px gap hata kar 50px kar diya */
+.hero{padding:50px 15px 50px;} 
 .hero h1{font-size:30px;}
 
-.container{padding:40px 15px 20px;} 
+.container{padding:20px 15px 20px;} 
 .category{margin-bottom:35px;}
 .grid{grid-template-columns:repeat(2,1fr);gap:12px;}
 .card img{height:200px;}
@@ -366,7 +368,7 @@ stars[i].classList.add("active");
 }
 }
 
-/* ===== PASSIVE SCROLL LISTENER ADDED HERE ===== */
+/* ===== PASSIVE SCROLL LISTENER ===== */
 window.addEventListener("scroll", function() {
     let header = document.getElementById("mainHeader");
     if (window.scrollY > 50) {
