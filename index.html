@@ -111,7 +111,9 @@ font-size: 24px;
 .card img{width:100%;height:300px;object-fit:contain;border-radius:12px;}
 
 .visit-text{margin-top:5px;color:#007bff;font-weight:bold;font-size:14px;cursor:pointer;}
-.rating span{font-size:18px;cursor:pointer;color:gray;}
+
+/* Default cursor isliye diya hai taaki ab click hone wala feel na aaye */
+.rating span{font-size:18px;cursor:default;color:gray;}
 .rating span.active{color:#ffd700;}
 
 /* About Section */
@@ -382,11 +384,11 @@ container.innerHTML += `
 Visit Store
 </div>
 <div class="rating">
-<span onclick="rate(this)">★</span>
-<span onclick="rate(this)">★</span>
-<span onclick="rate(this)">★</span>
-<span onclick="rate(this)">★</span>
-<span onclick="rate(this)">★</span>
+<span class="active">★</span>
+<span class="active">★</span>
+<span class="active">★</span>
+<span class="active">★</span>
+<span class="active">★</span>
 </div>
 </div>`;
 });
@@ -408,6 +410,7 @@ card.style.display=card.innerText.toLowerCase().includes(input)?"block":"none";
 });
 }
 
+// Ye function ab kaam me nahi aayega kyunki rating fixed hai, par jaisa aapne kaha baaki kuch touch nahi karna isliye ise yahin chhoda hai.
 function rate(star){
 let stars=star.parentElement.querySelectorAll("span");
 stars.forEach(s=>s.classList.remove("active"));
@@ -476,4 +479,3 @@ window.addEventListener("load", function(){
 
 </body>
 </html>
-
